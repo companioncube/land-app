@@ -1,0 +1,112 @@
+Land:
+<Land>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.9, 0.8, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        padding: ["12dp","12dp","12dp","12dp"]
+        spacing: "12dp"
+        
+        Label:
+            text: "Share Calculator"
+            size_hint: 1, .1
+            font_size: "28dp"
+            color: 0.0, 0.24, 0.27, 1
+
+        BoxLayout:  
+            padding: "8dp"
+            canvas.before:
+                Color:
+                    rgba: 0.33, 0.62, 0.33, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size          
+            orientation:"horizontal"
+            size_hint: 1, .3
+            BoxLayout:
+                canvas.before:
+                    Color:
+                        rgba: 0.57, 0.77, 0.57, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size          
+                orientation:"vertical"
+                size_hint: .2, 1
+                Label:
+                    text: "Outer shares:"
+                    color: 0.04, 0.2, 0.04, 1
+                BoxLayout:
+                    padding: "4dp"
+                    Button:
+                        text:"Add outer share"
+                        font_size: "15dp"
+                        is_shortened: True
+                        on_press: root.on_press_outer()
+            ScrollView:    
+                StackLayout:
+                    id: outer_stack
+                    size_hint: 1, None
+                    height: self.minimum_height
+                    spacing: "12dp"
+                    orientation: "lr-tb"
+        
+        BoxLayout:
+            padding: "8dp"
+            orientation:"vertical"
+            canvas.before:
+                Color:
+                    rgba: 0.33, 0.62, 0.33, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size     
+            Label:
+                size_hint: 1, .2
+                font_size: "22dp"
+                text: "Inner Shares"
+                color: 0.04, 0.2, 0.04, 1     
+            BoxLayout:
+                orientation:"vertical"
+                padding:"12dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.57, 0.77, 0.57, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size          
+
+                BoxLayout:
+                    id: inner_stack
+                    spacing: "10dp"
+                BoxLayout:
+                    size_hint: 1, .5
+                    id: result_stack
+                    spacing: "10dp"
+                
+                Label:
+                    size_hint: 1, .2
+                    id: lccm
+                    text: "-"
+                    color: 0.04, 0.2, 0.04, 1
+        
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint:1, None
+            height:"40dp"
+            Button:
+                size_hint: 1, None
+                height: "40dp"
+                text: "Calculate"
+                font_size: 24   
+                on_press: root.calculate()
+                color: .9, 0.6, 0.2, 1
+                disabled: not root.calc_enabled
+            Button:
+                text: "Clear"
+                size_hint: 1, None
+                height: "40dp"
+                font_size: 24
+                on_press: root.clear_inp()
