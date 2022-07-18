@@ -165,7 +165,10 @@ class Land(BoxLayout):
         self.iid.clear()
         self.result.clear()
         self.result_formatted.clear()
-
+        
+        for i in self.result_label:
+            self.result_label[i].text='-'
+        self.ids.lccm.text='-'
         pass
 
 
