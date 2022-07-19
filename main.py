@@ -183,7 +183,14 @@ class Land(BoxLayout):
         self.result.clear()
         self.result_formatted.clear()
         self.calc_enabled=False
-
+        self.count_outer=0
+        self.count_inner=0
+        self.ids.lccm.text='-'
+        self.result_label.clear()
+        self.text_box.clear()
+        self.den.clear()
+        self.child_count.clear()
+        self.os.clear()
 
 
 class Land(App):
