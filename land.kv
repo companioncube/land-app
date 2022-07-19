@@ -104,9 +104,16 @@ Land:
                 on_press: root.calculate()
                 color: .9, 0.6, 0.2, 1
                 disabled: not root.calc_enabled
-            Button:
-                text: "Clear"
-                size_hint: 1, None
-                height: "40dp"
-                font_size: 24
-                on_press: root.clear_inp()
+            BoxLayout:
+                orientation:"horizontal"
+                Button:
+                    text: "Clear"
+                    size_hint: 1, None
+                    height: "40dp"
+                    font_size: 24
+                    on_press: root.clear_inp()
+                Button:
+                    text: "Reset"
+                    font_size: 24
+                    on_press: root.reset_all()
+

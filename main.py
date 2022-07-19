@@ -25,6 +25,7 @@ class Land(BoxLayout):
     result_formatted=dict()
     result_label=dict()
     calc_enabled=BooleanProperty(False)
+    text_box=dict()
 
     def on_press_inner(self,id,oid,rb):
         self.count_inner+=1
@@ -36,6 +37,7 @@ class Land(BoxLayout):
         ti.on_text_validate= lambda: self.input_share(ti,ti.txid)        
         id.add_widget(ti)
 
+        self.text_box[ti.txid]=ti
 
         res=Label(text="-",color=[0.04, 0.2, 0.04, 1])
         res.txid=str(oid)+'_'+str(self.child_count[oid])
@@ -82,6 +84,7 @@ class Land(BoxLayout):
         ti=TextInput(multiline=False,halign="center",input_filter="int",hint_text="Enter share",write_tab=False)
         ti.txid=str(self.count_outer)+"_1"
         ti.bind(focus=self.on_focus)
+        self.text_box[ti.txid]=ti
         self.os.append([None])
         ti.bind(text= lambda x,y: self.input_share(ti,ti.txid))
         ti.on_text_validate= lambda: self.input_share(ti,ti.txid)
@@ -165,12 +168,29 @@ class Land(BoxLayout):
         self.iid.clear()
         self.result.clear()
         self.result_formatted.clear()
-        
+        self.calc_enabled=False
+        for i in self.text_box:
+            self.text_box[i].text=''
         for i in self.result_label:
             self.result_label[i].text='-'
         self.ids.lccm.text='-'
         pass
-
+    def reset_all(self):
+        self.ids.outer_stack.clear_widgets()
+        self.ids.inner_stack.clear_widgets()
+        self.ids.result_stack.clear_widgets()
+        self.iid.clear()
+        self.result.clear()
+        self.result_formatted.clear()
+        self.calc_enabled=False
+        self.count_outer=0
+        self.count_inner=0
+        self.ids.lccm.text='-'
+        self.result_label.clear()
+        self.text_box.clear()
+        self.den.clear()
+        self.child_count.clear()
+        self.os.clear()
 
 
 class Land(App):
