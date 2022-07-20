@@ -119,7 +119,7 @@ class Land(BoxLayout):
     def input_share(self,widget,stre):
         print(widget.text)
         print(stre)
-        if widget.text is not '':
+        if widget.text != '':
             self.iid[stre]=int(widget.text)
         print(self.iid)
         if len(self.iid)==self.count_inner:
