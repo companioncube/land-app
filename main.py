@@ -6,7 +6,7 @@ from kivy.uix.stacklayout import StackLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.metrics import dp
-from kivy.properties import StringProperty, ListProperty, DictProperty, BooleanProperty
+from kivy.properties import StringProperty, BooleanProperty
 from kivy.uix.textinput import TextInput
 from fractions import *
 import numpy as np
