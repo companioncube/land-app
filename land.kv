@@ -38,12 +38,18 @@ Land:
                 size_hint: .2, 1
                 Label:
                     text: "Outer shares:"
+                    text_size: self.width, None
+                    size: self.texture_size
+                    halign: 'center'
                     color: 0.04, 0.2, 0.04, 1
                 BoxLayout:
                     padding: "4dp"
                     Button:
                         text:"Add outer share"
-                        font_size: "15dp"
+                        text_size: self.width, None
+                        size: self.texture_size
+                        halign: 'center'
+                        #font_size: "15dp"
                         is_shortened: True
                         on_press: root.on_press_outer()
             ScrollView:    
@@ -100,7 +106,7 @@ Land:
                 size_hint: 1, None
                 height: "40dp"
                 text: "Calculate"
-                font_size: 24   
+                font_size: "30dp"   
                 on_press: root.calculate()
                 color: .9, 0.6, 0.2, 1
                 disabled: not root.calc_enabled
@@ -110,10 +116,10 @@ Land:
                     text: "Clear"
                     size_hint: 1, None
                     height: "40dp"
-                    font_size: 24
+                    font_size: "25dp"
                     on_press: root.clear_inp()
                 Button:
                     text: "Reset"
-                    font_size: 24
+                    font_size: "25dp"
                     on_press: root.reset_all()
 
