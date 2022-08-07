@@ -73,31 +73,35 @@ Land:
                 size_hint: 1, .2
                 font_size: "22dp"
                 text: "Inner Shares"
-                color: 0.04, 0.2, 0.04, 1     
-            BoxLayout:
-                orientation:"vertical"
-                padding:"12dp"
-                canvas.before:
-                    Color:
-                        rgba: 0.57, 0.77, 0.57, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size          
+                color: 0.04, 0.2, 0.04, 1  
+            ScrollView:   
+                BoxLayout:
+                    orientation:"vertical"
+                    padding:"12dp"
+                    canvas.before:
+                        Color:
+                            rgba: 0.57, 0.77, 0.57, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size          
 
-                BoxLayout:
-                    id: inner_stack
-                    spacing: "10dp"
-                BoxLayout:
-                    size_hint: 1, .5
-                    id: result_stack
-                    spacing: "10dp"
-                
-                Label:
-                    size_hint: 1, .2
-                    id: lccm
-                    text: "-"
-                    color: 0.04, 0.2, 0.04, 1
-        
+                    StackLayout:
+                        id: inner_stack
+                        size_hint: .1, None
+                        height: self.minimum_height
+                        spacing: "12dp"
+                        orientation: "lr-tb"
+                    BoxLayout:
+                        size_hint: 1, .5
+                        id: result_stack
+                        spacing: "10dp"
+                    
+                    Label:
+                        size_hint: 1, .2
+                        id: lccm
+                        text: "-"
+                        color: 0.04, 0.2, 0.04, 1
+            
         BoxLayout:
             orientation:"horizontal"
             size_hint:1, None

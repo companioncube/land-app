@@ -72,7 +72,7 @@ class Land(BoxLayout):
         outer_box.add_widget(b_outer)
         
         self.ids.outer_stack.add_widget(outer_box)
-        inner_box = BoxLayout()
+        inner_box = BoxLayout(size_hint=(None, None), size=(dp(80),dp(40)))
         # with inner_box.canvas:
         #     # Add a red color
         #     Color(1., 0, 0)
